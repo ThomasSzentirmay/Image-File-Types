@@ -34,9 +34,7 @@ function convertImage() {
 
       const convertedImageData = canvas.toDataURL(`image/${format}`);
       const outputImage = document.getElementById("outputImage");
-      if (outputImage) {
-        outputImage.src = convertedImageData;
-      }
+      outputImage.src = convertedImageData;
     };
     img.src = event.target.result;
   };
@@ -49,12 +47,8 @@ function downloadImage() {
     return;
   }
 
-  const imageSrc = outputImage.src;
-
   const link = document.createElement("a");
-  link.href = imageSrc;
-
-  const fileName = imageSrc.substring(imageSrc.lastIndexOf("/") + 1);
-  link.download = fileName;
+  link.href = outputImage.src;
+  link.download = "converted_image.jpg";
   link.click();
 }
