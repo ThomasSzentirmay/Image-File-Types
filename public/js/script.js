@@ -34,9 +34,20 @@ function convertImage() {
 
       const convertedImageData = canvas.toDataURL(`image/${format}`);
       const outputImage = document.querySelector("#outputImage");
-      outputImage.src = convertedImageData;
+
+      if (outputImage) {
+        outputImage.src = convertedImageData;
+      } else {
+        alert("Error: Unable to find the output image element.");
+      }
+    };
+    img.onerror = function () {
+      alert("Error: Failed to load the image file.");
     };
     img.src = event.target.result;
+  };
+  reader.onerror = function () {
+    alert("Error: Failed to read the image file.");
   };
   reader.readAsDataURL(file);
 }
