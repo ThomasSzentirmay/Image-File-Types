@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Image File Converter</title>
+  <title>Welcome to the App</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Image File Converter</h1>
-  <form action="/convert" method="POST" enctype="multipart/form-data">
-    <input type="file" name="imageFile" accept="image/*">
-    <select name="format">
-      <option value="jpeg">JPEG</option>
-      <option value="webp">WebP</option>
-    </select>
-    <button type="submit">Convert</button>
-  </form>
+  <div id="indexContainer">
+    <h1>Welcome to the App</h1>
+    <p>Select an image file to convert it to JPEG or WebP format.</p>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="imageFile" accept="image/*">
+      <select id="formatSelect">
+        <option value="jpeg">JPEG</option>
+        <option value="webp">WebP</option>
+      </select>
+      <button id="convertBtn" type="button">Convert</button>
+    </form>
+  </div>
 
   <script src="/js/script.js"></script>
 </body>

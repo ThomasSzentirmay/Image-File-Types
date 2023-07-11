@@ -1,38 +1,41 @@
-/* GLOBAL STYLES */
+/* Global Styles */
 body {
-  background-color: #000;
-  color: #fff;
-  font-family: "Arial", sans-serif;
-  font-size: 16px;
+  background-color: #686767;
+  color: #f2f2f2;
+  font-family: sans-serif;
+  font-size: 18px;
   line-height: 1.5;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: bold;
 }
 
 a {
-  color: #00f;
+  color: #00a8e8;
   text-decoration: none;
 }
 
 button {
-  background-color: #00f;
+  background-color: #00a8e8;
   border: none;
+  border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 16px;
-  padding: 10px 15px;
+  font-size: 20px;
+  padding: 12px 20px;
 }
 
 button:hover {
-  background-color: #007bff;
+  background-color: #0088b9;
 }
 
-/* INDEX PAGE STYLES */
+/* Index Page Styles */
+
 #indexContainer {
   display: flex;
   flex-direction: column;
@@ -45,14 +48,15 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 #indexForm input[type="file"] {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* CONVERTED PAGE STYLES */
+/* Converted Page Styles */
+
 #convertedContainer {
   display: flex;
   flex-direction: column;
@@ -62,7 +66,7 @@ button:hover {
 }
 
 #outputImage {
-  margin-top: 20px;
+  margin-top: 30px;
   max-width: 100%;
   height: auto;
 }
