@@ -36,7 +36,7 @@ async function convertImage(inputPath, outputPath, format) {
   await sharp(inputPath).toFormat(format).toFile(outputPath);
 }
 
-const port = 3000;
+const port = 3333;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
