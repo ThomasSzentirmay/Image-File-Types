@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     link.href = imageSrc;
 
     const fileName = imageSrc.substring(imageSrc.lastIndexOf('/') + 1);
+    link.download = fileName;
     link.click();
   }
   
