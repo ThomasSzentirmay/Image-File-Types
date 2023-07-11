@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function () {
   const convertBtn = document.getElementById("convertBtn");
   if (convertBtn) {
     convertBtn.addEventListener("click", convertImage);
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (downloadBtn) {
     downloadBtn.addEventListener("click", downloadImage);
   }
-});
+};
 
 function convertImage() {
   const fileInput = document.getElementById("imageFile");
