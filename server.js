@@ -31,3 +31,12 @@ app.post("/convert", upload.single("imageFile"), (req, res) => {
       res.status(500).send("An error occurred during conversion.");
     });
 });
+
+async function convertImage(inputPath, outputPath, format) {
+  await sharp(inputPath).toFormat(format).toFile(outputPath);
+}
+
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
