@@ -1,17 +1,17 @@
 window.onload = function () {
-  const convertBtn = document.getElementById("convertBtn");
+  const convertBtn = document.querySelector("#convertBtn");
   if (convertBtn) {
     convertBtn.addEventListener("click", convertImage);
   }
 
-  const downloadBtn = document.getElementById("downloadBtn");
+  const downloadBtn = document.querySelector("#downloadBtn");
   if (downloadBtn) {
     downloadBtn.addEventListener("click", downloadImage);
   }
 };
 
 function convertImage() {
-  const fileInput = document.getElementById("imageFile");
+  const fileInput = document.querySelector("#imageFile");
   const file = fileInput.files[0];
 
   if (!file) {
@@ -19,7 +19,7 @@ function convertImage() {
     return;
   }
 
-  const formatSelect = document.getElementById("formatSelect");
+  const formatSelect = document.querySelector("#formatSelect");
   const format = formatSelect.value;
 
   const reader = new FileReader();
@@ -33,7 +33,7 @@ function convertImage() {
       context.drawImage(img, 0, 0);
 
       const convertedImageData = canvas.toDataURL(`image/${format}`);
-      const outputImage = document.getElementById("outputImage");
+      const outputImage = document.querySelector("#outputImage");
       outputImage.src = convertedImageData;
     };
     img.src = event.target.result;
@@ -42,7 +42,7 @@ function convertImage() {
 }
 
 function downloadImage() {
-  const outputImage = document.getElementById("outputImage");
+  const outputImage = document.querySelector("#outputImage");
   if (!outputImage) {
     return;
   }
