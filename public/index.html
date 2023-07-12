@@ -3,10 +3,8 @@
   <head>
     <title>Welcome to the App</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <link
-      href="https://unpkg.com/filepond/dist/filepond.css"
-      rel="stylesheet"
-    />
+    <!-- Use the FilePond CDN for the CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/filepond@4.29.2/dist/filepond.css" />
   </head>
   <body>
     <div id="indexContainer">
@@ -23,12 +21,8 @@
       </form>
     </div>
 
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script>
-      const imageFileInput = document.querySelector("#imageFile");
-      const pond = FilePond.create(imageFileInput);
-    </script>
-
+    <!-- Use the FilePond CDN for the JavaScript file -->
+    <script src="https://unpkg.com/filepond@4.29.2"></script>
     <script src="/js/script.js"></script>
   </body>
 </html>
