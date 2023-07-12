@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", function () {
   // Initialize FilePond instance
   const imageFileInput = document.querySelector("#imageFile");
   const pond = FilePond.create(imageFileInput);
@@ -9,25 +9,35 @@ window.onload = function () {
 
   // Convert button click event handler
   convertBtn.addEventListener("click", function () {
-    const file = pond.getFile();
-    if (!file) {
+    const files = pond.getFiles();
+    if (files.length === 0) {
       alert("Please select an image file.");
       return;
     }
 
     const format = formatSelect.value;
 
-    file.convert(
-      "image/png",
-      { type: `image/${format}`, quality: 0.8 },
-      (convertedFile) => {
-        const convertedImageData = URL.createObjectURL(convertedFile);
-        const outputImage = document.querySelector("#outputImage");
-        if (outputImage) {
-          outputImage.src = convertedImageData;
-        }
-      }
-    );
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const img = new Image();
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const context = canvas.getContext("2d");
+          context.drawImage(img, 0, 0);
+
+          const convertedImageData = canvas.toDataURL(`image/${format}`);
+          const outputImage = document.querySelector("#outputImage");
+          if (outputImage) {
+            outputImage.src = convertedImageData;
+          }
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file.file);
+    });
   });
 
   // Download button click event handler
@@ -45,4 +55,4 @@ window.onload = function () {
       link.click();
     });
   }
-};
+});
