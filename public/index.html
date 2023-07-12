@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Welcome to the App</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <div id="indexContainer">
-    <h1>Welcome to the App</h1>
-    <p>Select an image file to convert it to JPEG or WebP format.</p>
-    <form id="uploadForm">
-      <input type="file" id="imageFile" accept="image/*">
-      <select id="formatSelect">
-        <option value="jpeg">JPEG</option>
-        <option value="webp">WebP</option>
-      </select>
-      <button id="convertBtn" type="button">Convert</button>
-    </form>
-  </div>
+  <head>
+    <title>Welcome to the App</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://unpkg.com/filepond/dist/filepond.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="indexContainer">
+      <h1>Welcome to the App</h1>
+      <p>Select an image file to convert it to JPEG or WebP format.</p>
+      <form id="uploadForm">
+        <input type="file" id="imageFile" accept="image/*" />
+        <select id="formatSelect">
+          <option value="jpeg">JPEG</option>
+          <option value="webp">WebP</option>
+        </select>
+        <button id="convertBtn" type="button">Convert</button>
+      </form>
+    </div>
 
-  <script src="/js/script.js"></script>
-</body>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <!-- Initialize FilePond -->
+    <script>
+      const imageFileInput = document.querySelector("#imageFile");
+      const pond = FilePond.create(imageFileInput);
+    </script>
+
+    <script src="/js/script.js"></script>
+  </body>
 </html>
